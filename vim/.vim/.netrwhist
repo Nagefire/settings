@@ -1,8 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home'
-let g:netrw_dirhist_2='/'
-let g:netrw_dirhist_3='/var'
-let g:netrw_dirhist_4='/var/www'
-let g:netrw_dirhist_5='/var/www/html'
-let g:netrw_dirhist_6='/var/www/html/admin'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/aftix/.local/share/Steam/SteamApps/common/DunDefEternity/D:'
+let g:netrw_dirhist_2='/home/aftix/CPong/src'
+let g:netrw_dirhist_3='/home/aftix/.ssh'

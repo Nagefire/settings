@@ -4,24 +4,24 @@ set $mod Mod4
 
 #STARTUP
 
-exec compton --config ~/.comptonrc --backend glx --vsync opengl-swc --paint-on-overlay -b
-exec feh --bg-scale ~/pictures/efaw.jpg
+#exec compton --config ~/.comptonrc --backend glx --vsync opengl-swc --paint-on-overlay -b
+#exec feh --bg-scale ~/pictures/efaw.jpg
 # hide dem borders
-hide_edge_borders both
+#hide_edge_borders both
 
 # hide dem titles
-for_window [class="^.*"] border pixel 1
-for_window [title="^float$"] floating enable
+#for_window [class="^.*"] border pixel 1
+#for_window [title="^float$"] floating enable
 
 #colors
 #solarized theme, weird
-set $background #1C1C1C
+set $background #000000
 set $back-inact #1C1C1C
-set $back-urgen #B85335
+set $back-urgen #f20000
 set $border #1C1C1C
 set $bor-in #1C1C1C
 set $bor-ur #1C1C1C
-set $text #FFB946
+set $text #f5f5f5
 set $t-in #888888
 set $t-ur #CF6A4C
 
@@ -40,15 +40,15 @@ font xft:Neep Alt 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
-bindsym $mod+j exec urxvt -T float
+bindsym $mod+Return exec "urxvt -fg white -bg black -cr purple --font xft:dejavusansmono"
+#bindsym $mod+j exec urxvt -T float
 
 # kill focused window
 bindsym $mod+shift+Q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-bindsym $mod+s exec pmenu
+#bindsym $mod+s exec pmenu
 
 bindsym $mod+shift+d exec i3-dmenu-desktop
 
@@ -83,7 +83,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+Shfit+z fullscreen
+bindsym $mod+z fullscreen
 
 # change container layout (stacked, tabbed, default)
 bindsym $mod+t layout stacking
@@ -131,7 +131,7 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exec xfce4-session-logout
+bindsym $mod+Shift+e exec "i3-msg exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -176,10 +176,10 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command conky-i3bar
+    status_command i3status
     position top
 #    tray_output none
-	output DFP2
+    #output DFP2
     colors {
         background $back-inact
         statusline $text
@@ -190,3 +190,9 @@ bar {
         urgent_workspace   $bor-ur $back-urgen $t-ur
     }
 }
+
+bindsym $mod+Shift+s exec skype
+bindsym $mod+Shift+t exec steam
+bindsym $mod+shift+g exec chromium
+
+exec_always shutter

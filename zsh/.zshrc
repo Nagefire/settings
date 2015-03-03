@@ -1,56 +1,27 @@
-# Set up the prompt
-autoload -U colors
-colors
-autoload -Uz vcs_info
+#locale
+export LC_ALL="en_US.UTF-8"
 
-zstyle ':vcs_info:*' stagedstr '%F{green}+'
-zstyle ':vcs_info:*' unstagedstr '%F{red}!'
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' enable git
+#netctl start wlp8s0-Billy\ Goat 
 
-precmd () {
-	if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
-		zstyle ':vcs_info:*' formats            '%u%c%F{blue} %b%F{white}'
-	} else {
-		zstyle ':vcs_info:*' formats '%u%c%F{yellow}?%F{blue} %b%F{white}'
-	}
-	vcs_info
-}
+# neat aliases
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias la="ls -a"
+alias pacman="pacman --color auto"
 
-setopt prompt_subst
+export EDITOR=vim
 
-PROMPT='%{$fg_no_bold[yellow]%}%% %{$reset_color%}'
-RPROMPT='${vcs_info_msg_0_}'
-
-setopt histignorealldups sharehistory
-
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
-
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
-
-# Use modern completion system
-autoload -Uz compinit
+# completion
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
+autoload -U compinit
 compinit
 
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# prompt
+autoload -U colors && colors
+PROMPT_NAME="%{${fg_bold[yellow]}%}%n "
+PROMPT_CWD="%{${fg_bold[cyan]}%}%~ "
+PROMPT_ARROW="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
+PS1="$PROMPT_NAME$PROMPT_CWD$PROMPT_ARROW%{$reset_color%}"
 
-source ~/.zsh_aliases
+archey3
