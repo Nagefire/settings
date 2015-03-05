@@ -269,9 +269,9 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "Paul";
-    user_name = "paul";
-    nick = "paull";
+    real_name = "aft";
+    user_name = "aft";
+    nick = "aftix";
   };
   "fe-text" = { actlist_sort = "refnum"; indent = "10"; };
   "fe-common/core" = { theme = "asdf"; };
