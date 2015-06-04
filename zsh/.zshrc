@@ -24,4 +24,18 @@ PROMPT_CWD="%{${fg_bold[cyan]}%}%~ "
 PROMPT_ARROW="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 PS1="$PROMPT_NAME$PROMPT_CWD$PROMPT_ARROW%{$reset_color%}"
 
+#Make keys work
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[6~' end-of-history
+bindkey '\e[4~' end-of-line
+
+case $TERM in (xterm*)
+bindkey '\eOH'  beginning-of-line
+bindkey '\eOF'  end-of-line
+esac
+
+bindkey '\e[3~' delete-char
+bindkey '\e[6~' end-of-history
+bindkey '\e[2~' redisplay
+
 archey3
