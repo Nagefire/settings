@@ -4,14 +4,14 @@ set $mod Mod4
 
 #STARTUP
 
-#exec compton --config ~/.comptonrc --backend glx --vsync opengl-swc --paint-on-overlay -b
-#exec feh --bg-scale ~/pictures/efaw.jpg
+exec compton --config ~/.comptonrc --backend glx --vsync opengl-swc --paint-on-overlay -b
+exec feh --randomize --bg-scale ~/.wallpaper/*
 # hide dem borders
-#hide_edge_borders both
+hide_edge_borders both
 
 # hide dem titles
-#for_window [class="^.*"] border pixel 1
-#for_window [title="^float$"] floating enable
+for_window [class="^.*"] border pixel 1
+for_window [title="^float$"] floating enable
 
 #colors
 #solarized theme, weird
