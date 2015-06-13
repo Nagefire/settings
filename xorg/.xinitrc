@@ -1,4 +1,5 @@
 pulseaudio -D
+urxvtd &
 
 #X config
 setxkbmap -variant colemak

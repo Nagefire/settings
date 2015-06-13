@@ -12,7 +12,7 @@ XTerm*saveLines:4096
 ! URxvt*skipScroll:                     boolean
 ! URxvt*pastableTabs:                   boolean
 ! URxvt*scrollstyle:                    mode
-! URxvt*scrollBar:                      boolean
+URxvt*scrollBar:                      false
 ! URxvt*scrollBar_right:                boolean
 ! URxvt*scrollBar_floating:             boolean
 ! URxvt*scrollBar_align:                mode
@@ -35,7 +35,7 @@ URxvt*transparent:                    false
 ! URxvt*mouseWheelScrollPage:           boolean
 ! URxvt*tripleclickwords:               boolean
 ! URxvt*insecure:                       boolean
-URxvt*cursorUnderline:                true
+URxvt*cursorUnderline:                false
 ! URxvt*cursorBlink:                    boolean
 ! URxvt*pointerBlank:                   boolean
 URxvt*background:                     #505050
@@ -71,7 +71,7 @@ URxvt*cursorColor:                    purple
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-URxvt*font:                           xft:dejavusansmono
+URxvt*font:                           xft:dejavusansmono:antialias=false
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
@@ -92,8 +92,8 @@ URxvt*saveLines:                      4096
 ! URxvt*externalBorder:                 number
 ! URxvt*internalBorder:                 number
 ! URxvt*borderLess:                     boolean
-! URxvt*lineSpace:                      number
-! URxvt*letterSpace:                    number
+URxvt*lineSpace:                      -1
+URxvt*letterSpace:                    -1
 ! URxvt*skipBuiltinGlyphs:              boolean
 ! URxvt*pointerBlankDelay:              number
 ! URxvt*backspacekey:                   string
@@ -106,22 +106,22 @@ URxvt*saveLines:                      4096
 ! URxvt*secondaryScroll:                boolean
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
-! URxvt*perl-ext-common:                string
-! URxvt*perl-ext:                       string
+URxvt*perl-ext-common:                default,tabbed
+URxvt*perl-ext:                       default,url-select
 ! URxvt*iso14755:                       boolean
 ! URxvt*iso14755_52:                    boolean
 ! URxvt*xrm:                            string
-! URxvt*keysym.sym:                     keysym
+URxvt*keysym.M-u:                     perl:url-select:select_next
 ! URxvt*background.border:              boolean
 ! URxvt*background.expr:                string
 ! URxvt*background.interval:            seconds
 ! URxvt*bell-command:                   string
 ! URxvt*kuake.hotkey:                   string
-! URxvt*matcher.button:                 string
+! URxvt*matcher.button:                 1
 ! URxvt*matcher.launcher:               string
 ! URxvt*matcher.launcher.*:             string
 ! URxvt*matcher.pattern.*:              string
-! URxvt*matcher.rend.*:                 string
+! URxvt*matcher.rend.0:                 Uline Bold fg5
 ! URxvt*remote-clipboard.fetch:         string
 ! URxvt*remote-clipboard.store:         string
 ! URxvt*searchable-scrollback:          string
@@ -133,4 +133,6 @@ URxvt*tab-bg:                         #909090
 URxvt*tab-fg:                         #909090
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
-! URxvt*url-launcher:                   string
+URxvt*url-launcher:                   /usr/bin/xdg-open
+URxvt*url-select.launcher:	      /usr/bin/xdg-open
+URxvt*url-select.underline:	      true
