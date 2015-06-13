@@ -40,7 +40,7 @@ font xft:Neep Alt 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec "urxvt -fg white -bg black -cr purple --font xft:dejavusansmono"
+bindsym $mod+Return exec "urxvt"
 #bindsym $mod+j exec urxvt -T float
 
 # kill focused window
