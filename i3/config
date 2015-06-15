@@ -10,8 +10,8 @@ exec feh --randomize --bg-scale ~/.wallpaper/*
 hide_edge_borders both
 
 # hide dem titles
-for_window [class="^.*"] border pixel 1
-for_window [title="^float$"] floating enable
+#for_window [class="^.*"] border pixel 1
+#for_window [title="^float$"] floating enable
 
 #colors
 #solarized theme, weird
