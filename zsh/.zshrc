@@ -24,6 +24,14 @@ PROMPT_CWD="%{${fg_bold[cyan]}%}%~ "
 PROMPT_ARROW="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 PS1="$PROMPT_NAME$PROMPT_CWD$PROMPT_ARROW%{$reset_color%}"
 
+#imgur upload
+imgur(){
+for i in "$@";do
+curl -# -F "image"=@"$i" -F "key"="4907fcd89e761c6b07eeb8292d5a9b2a" imgur.com/api/upload.xml|\
+grep -Eo '<[a-z_]+>http[^<]+'|sed 's/^<.\|_./\U&/g;s/_/ /;s/<\(.*\)>/\x1B[0;34m\1:\x1B[0m /'
+done
+}
+
 #Make keys work
 bindkey '\e[1~' beginning-of-line
 bindkey '\e[6~' end-of-history
