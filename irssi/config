@@ -42,7 +42,7 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "yes";
+    autoconnect = "no";
   }
 );
 
@@ -289,7 +289,12 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Unknown"; user_name = "aftix"; nick = "aftix"; };
+  core = {
+    real_name = "Unknown";
+    user_name = "aftix";
+    nick = "aftix";
+    timestamp_format = "%I:%M";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { autolog = "yes"; };
 };
