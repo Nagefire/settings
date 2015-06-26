@@ -38,8 +38,8 @@ URxvt*transparent:                    false
 URxvt*cursorUnderline:                false
 ! URxvt*cursorBlink:                    boolean
 ! URxvt*pointerBlank:                   boolean
-URxvt*background:                     #808080
-URxvt*foreground:                     #000000
+URxvt*foreground:                     #808080
+URxvt*background:                     #000000
 ! URxvt*color0:                         color
 ! URxvt*color1:                         color
 ! URxvt*color2:                         color
