@@ -4,5 +4,8 @@ map <F9> :!clear
 set nowrap
 
 set autoindent
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
+
+set listchars=tab:>.
+set list
