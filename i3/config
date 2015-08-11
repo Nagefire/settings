@@ -194,5 +194,3 @@ bar {
 bindsym $mod+Shift+s exec skype
 bindsym $mod+Shift+t exec steam
 bindsym $mod+shift+g exec firefox
-
-exec_always shutter
