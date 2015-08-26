@@ -9,3 +9,5 @@ set shiftwidth=4
 
 set listchars=tab:>.
 set list
+
+set number
