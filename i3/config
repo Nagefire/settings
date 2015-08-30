@@ -1,4 +1,4 @@
-# Solarized-ish theme
+#Solarized-ish theme
 
 set $mod Mod4
 
@@ -25,7 +25,7 @@ set $text #f5f5f5
 set $t-in #888888
 set $t-ur #CF6A4C
 
-# class                 border  background  text  indicator
+#class                  border  background  text  indicator
 client.focused          $border $background $text #31392F
 client.focused_inactive $bor-in $back-inact $t-in #676767
 client.unfocused        $bor-in $back-inact $t-in #515151
@@ -135,11 +135,11 @@ bindsym $mod+Shift+e exec "lxde-logout"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # They resize the border in the direction you pressed, e.g.
-        # when pressing left, the window is resized so that it has
-        # more space on its left
+# They resize the border in the direction you pressed, e.g.
+# when pressing left, the window is resized so that it has
+# more space on its left
 
 bindsym b resize shrink left 1 px or 1 ppt
 bindsym Shift+B resize grow   left 1 px or 1 ppt
@@ -153,7 +153,7 @@ bindsym Shift+P resize grow   up 1 px or 1 ppt
 bindsym f resize shrink right 1 px or 1 ppt
 bindsym Shift+F resize grow   right 1 px or 1 ppt
 
-        # same bindings, but for the arrow keys
+#same bindings, but for the arrow keys
 bindsym Left resize shrink left 10 px or 10 ppt
 bindsym Shift+Left resize grow left 10 px or 10 ppt
 
@@ -166,7 +166,7 @@ bindsym Shift+Up resize grow up 10 px or 10 ppt
 bindsym Right resize shrink right 10 px or 10 ppt
 bindsym Shift+Right resize grow right 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
+#back to normal: Enter or Escape
 bindsym Return mode "default"
 bindsym Escape mode "default"
 }
@@ -176,19 +176,19 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
-    position top
-#    tray_output none
-    #output DFP2
-    colors {
-        background $back-inact
-        statusline $text
-                           #border #back       #text
-        focused_workspace  $border $background $text
-        active_workspace   $border $background $text
-        inactive_workspace $bor-in $back-inact $t-in
-        urgent_workspace   $bor-ur $back-urgen $t-ur
-    }
+	status_command i3status
+	position top
+	#tray_output none
+	#output DFP2
+	colors {
+		background $back-inact
+		statusline $text
+		                   #border #back       #text
+		focused_workspace  $border $background $text
+		active_workspace   $border $background $text
+		inactive_workspace $bor-in $back-inact $t-in
+		urgent_workspace   $bor-ur $back-urgen $t-ur
+	}
 }
 
 bindsym $mod+Shift+s exec skype
