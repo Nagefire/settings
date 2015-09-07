@@ -47,7 +47,7 @@ bindsym $mod+Return exec "urxvtc"
 bindsym $mod+shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec "dmenu_run -b"
 #bindsym $mod+s exec pmenu
 
 bindsym $mod+shift+d exec i3-dmenu-desktop
@@ -177,7 +177,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	status_command i3status
-	position top
+	position bottom
 	#tray_output none
 	#output DFP2
 	colors {
