@@ -11,3 +11,4 @@ set listchars=tab:>.
 set list
 
 set number
+set shell=/bin/bash
