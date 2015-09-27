@@ -191,6 +191,9 @@ bar {
 	}
 }
 
+#Use dmenu to play whatever is in xsel with mpv, store output in a log
+bindsym $mod+m exec "mpv `xsel -o | dmenu -p 'Play with mvp: ' -b` > ~/.i3mpvlog"
+
 bindsym $mod+Shift+s exec skype
 bindsym $mod+Shift+t exec steam
 bindsym $mod+Shift+g exec firefox
