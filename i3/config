@@ -199,6 +199,8 @@ bindsym $mod+c exec "xsel -o | dmenu -b -p 'Calculate:' | bc -l | dmenu -b -p 'A
 bindsym $mod+u exec "amixer sset Master `echo '3' | dmenu -b -p 'Raise volume:'`%+"
 bindsym $mod+i exec "amixer sset Master `echo '3' | dmenu -b -p 'Lower volume:'`%-"
 bindsym $mod+y exec "amixer sset Master toggle"
+#Open vim
+bindsym $mod+o exec "~/.i3/vimlaunch.sh"
 
 bindsym $mod+Shift+s exec skype
 bindsym $mod+Shift+t exec steam
