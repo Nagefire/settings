@@ -2,7 +2,8 @@ pulseaudio -D
 urxvtd &
 
 #X config
-setxkbmap -variant colemak
+setxkbmap us
+setxkbmap -option compose:caps
 xbindkeys
 xautolock -locker i3lock -time 7 -corners 0-00 &
 xset -dpms
