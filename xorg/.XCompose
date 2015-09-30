@@ -47,6 +47,33 @@ include "%L"
 <Multi_key> <c> <i> : "∫"
 <Multi_key> <c> <I> : "∮"
 <Multi_key> <c> <s> : "∑"
+<Multi_key> <c> <t> : "⨂"
+
+#Calculus multiples
+<Multi_key> <c> <1> <i> : "∫"
+<Multi_key> <c> <2> <i> : "∬"
+<Multi_key> <c> <3> <i> : "∭"
+<Multi_key> <c> <4> <i> : "⨌"
+<Multi_key> <c> <1> <I> : "∮"
+<Multi_key> <c> <2> <I> : "∯"
+<Multi_key> <c> <3> <I> : "∰"
+
+#General math
+<Multi_key> <m> <s>      : "√"
+<Multi_key> <m> <2> <s>  : "√"
+<Multi_key> <m> <3> <s>  : "∛"
+<Multi_key> <m> <4> <s>  : "∜"
+<Multi_key> <m> <comma>  : "≥"
+<Multi_key> <m> <period> : "≤"
+<Multi_key> <m> <plus>   : "±"
+<Multi_key> <m> <minus>  : "∓"
+
+#Geometry
+<Multi_key> <y> <a>          : "∠"
+<Multi_key> <y> <p>          : "∥"
+<Multi_key> <y> <exclam> <p> : "∦"
+<Multi_key> <y> <r>          : "∟"
+<Multi_key> <y> <R>          : "⟂"
 
 #Greek
 # Alpha
