@@ -194,7 +194,7 @@ bar {
 #Use dmenu to play whatever is in xsel with mpv, store output in a log
 bindsym $mod+m exec "mpv `xsel -o | dmenu -p 'Play with mvp: ' -b` > ~/.i3mpvlog"
 #Dcalculator!
-bindsym $mod+c exec "xsel -o | dmenu -b -p 'Calculate:' | bc -l | dmenu -b -p 'Answer:' | xsel -i"
+bindsym $mod+c exec "xsel -o | dmenu -b -p 'Calculate:' | python $HOME/.i3/pycalc.py | dmenu -b -p 'Answer:' | xsel -i"
 #Volume controls
 bindsym $mod+u exec "amixer sset Master `echo '3' | dmenu -b -p 'Raise volume:'`%+"
 bindsym $mod+i exec "amixer sset Master `echo '3' | dmenu -b -p 'Lower volume:'`%-"
