@@ -6,6 +6,12 @@ servers = (
     autoconnect = "yes";
   },
   {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6667";
+    autoconnect = "no";
+  },
+  {
     address = "irc.nixers.net";
     chatnet = "nixers";
     port = "6667";
@@ -17,9 +23,14 @@ chatnets = {
   esper = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/msg nickserv identify ThisPasswordIsWrongIntentionallyForGitHub";
+    autosendcmd = "/^msg nickserv identify IntentionallyWrongPassword";
   };
-  nixers = { type = "IRC"; nick = "atftix"; };
+  freenode = {
+    type = "IRC";
+    nick = "aftix";
+    autosendcmd = "/^msg nickserv identify WhyWouldIPutPassHereReallyTheseAreWrong";
+  };
+  nixers = { type = "IRC"; nick = "aftix"; };
 };
 
 channels = (
@@ -141,8 +152,8 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "aftix";
-    user_name = "aftix";
+    real_name = "aft";
+    user_name = "aft";
     nick = "aftix";
     timestamp_format = "%I:%M";
   };
@@ -160,4 +171,4 @@ settings = {
 hilights = ( { } );
 logs = { };
 ignores = ( );
-aliases = { wc = "window close"; };
+aliases = { wc = "window close"; run = "script load"; };
