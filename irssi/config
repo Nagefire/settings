@@ -16,6 +16,23 @@ servers = (
     chatnet = "nixers";
     port = "6667";
     autoconnect = "no";
+  },
+  {
+    address = "localhost";
+    chatnet = "bitlbee";
+    port = "6667";
+    password = "aftkhan";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.bitlbee.org";
+    chatnet = "bees";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
   }
 );
 
@@ -23,20 +40,29 @@ chatnets = {
   esper = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify IntentionallyWrongPassword";
+    autosendcmd = "/^msg nickserv identify IntentionallyWrong";
   };
   freenode = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify WhyWouldIPutPassHereReallyTheseAreWrong";
+    autosendcmd = "/^msg nickserv identify IntentionallyWrong";
   };
   nixers = { type = "IRC"; nick = "aftix"; };
+  bitlbee = { type = "IRC"; nick = "aftix"; };
+  bees = {
+    type = "IRC";
+    nick = "aftix";
+    autosendcmd = "/^msg nickserv identify IntentiallyWrong";
+  };
 };
 
 channels = (
   { name = "#squirrels"; chatnet = "esper"; autojoin = "yes"; },
   { name = "#nixers"; chatnet = "nixers"; autojoin = "no"; },
-  { name = "#offtopic"; chatnet = "nixers"; autojoin = "no"; }
+  { name = "#offtopic"; chatnet = "nixers"; autojoin = "no"; },
+  { name = "#bitlbee"; chatnet = "bees"; autojoin = "yes"; },
+  { name = "&skypeweb"; chatnet = "bitlbee"; autojoin = "yes"; },
+  { name = "&steam"; chatnet = "bitlbee"; autojoin = "yes"; }
 );
 
 statusbar = {
@@ -171,4 +197,70 @@ settings = {
 hilights = ( { } );
 logs = { };
 ignores = ( );
-aliases = { wc = "window close"; run = "script load"; };
+aliases = {
+  wc = "window close";
+  run = "script load";
+  wm = "window move";
+  wn = "window new";
+  wk = "window kill";
+  ws = "window show";
+  wd = "window down";
+  wu = "window up";
+  wl = "window left";
+  wr = "window right";
+};
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#squirrels";
+        tag = "esper";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#bitlbee";
+        tag = "bees";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "&skypeweb";
+        tag = "bitlbee";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "&steam";
+        tag = "bitlbee";
+      }
+    );
+  };
+  6 = { name = "irssi-rss"; };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#twitter_aftexploision";
+        tag = "bitlbee";
+      }
+    );
+  };
+};
+mainwindows = { 6 = { first_line = "1"; lines = "67"; }; };

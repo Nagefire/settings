@@ -135,40 +135,39 @@ bindsym $mod+Shift+e exec "lxde-logout"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-
-# They resize the border in the direction you pressed, e.g.
-# when pressing left, the window is resized so that it has
-# more space on its left
-
-bindsym h resize shrink left 1 px or 1 ppt
-bindsym Shift+H resize grow   left 1 px or 1 ppt
-
-bindsym j resize shrink down 1 px or 1 ppt
-bindsym Shift+J resize grow   down 1 px or 1 ppt
-
-bindsym k resize shrink up 1 px or 1 ppt
-bindsym Shift+K resize grow   up 1 px or 1 ppt
-
-bindsym l resize shrink right 1 px or 1 ppt
-bindsym Shift+L resize grow   right 1 px or 1 ppt
-
-#same bindings, but for the arrow keys
-bindsym Left resize shrink left 10 px or 10 ppt
-bindsym Shift+Left resize grow left 10 px or 10 ppt
-
-bindsym Down resize shrink down 10 px or 10 ppt
-bindsym Shift+Down resize grow down 10 px or 10 ppt
-
-bindsym Up resize shrink up 10 px or 10 ppt
-bindsym Shift+Up resize grow up 10 px or 10 ppt
-
-bindsym Right resize shrink right 10 px or 10 ppt
-bindsym Shift+Right resize grow right 10 px or 10 ppt
-
-#back to normal: Enter or Escape
-bindsym Return mode "default"
-bindsym Escape mode "default"
+	# These bindings trigger as soon as you enter the resize mode
+	# They resize the border in the direction you pressed, e.g.
+	# when pressing left, the window is resized so that it has
+	# more space on its left
+	
+	bindsym h resize shrink left 1 px or 1 ppt
+	bindsym Shift+H resize grow   left 1 px or 1 ppt
+	
+	bindsym j resize shrink down 1 px or 1 ppt
+	bindsym Shift+J resize grow   down 1 px or 1 ppt
+	
+	bindsym k resize shrink up 1 px or 1 ppt
+	bindsym Shift+K resize grow   up 1 px or 1 ppt
+	
+	bindsym l resize shrink right 1 px or 1 ppt
+	bindsym Shift+L resize grow   right 1 px or 1 ppt
+	
+	#same bindings, but for the arrow keys
+	bindsym Left resize shrink left 10 px or 10 ppt
+	bindsym Shift+Left resize grow left 10 px or 10 ppt
+	
+	bindsym Down resize shrink down 10 px or 10 ppt
+	bindsym Shift+Down resize grow down 10 px or 10 ppt
+	
+	bindsym Up resize shrink up 10 px or 10 ppt
+	bindsym Shift+Up resize grow up 10 px or 10 ppt
+	
+	bindsym Right resize shrink right 10 px or 10 ppt
+	bindsym Shift+Right resize grow right 10 px or 10 ppt
+	
+	#back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -191,17 +190,87 @@ bar {
 	}
 }
 
-#Use dmenu to play whatever is in xsel with mpv, store output in a log
+##Use dmenu to play whatever is in xsel with mpv, store output in a log
 bindsym $mod+m exec "mpv `xsel -o | dmenu -p 'Play with mvp: ' -b` > ~/.i3mpvlog"
-#Dcalculator!
+##Dcalculator!
 bindsym $mod+c exec "xsel -o | dmenu -b -p 'Calculate:' | python $HOME/.i3/pycalc.py | dmenu -b -p 'Answer:' | xsel -i"
-#Volume controls
+##Volume controls
 bindsym $mod+u exec "amixer sset Master `echo '3' | dmenu -b -p 'Raise volume:'`%+"
 bindsym $mod+i exec "amixer sset Master `echo '3' | dmenu -b -p 'Lower volume:'`%-"
 bindsym $mod+y exec "amixer sset Master toggle"
-#Open vim
+##Open vim
 bindsym $mod+o exec "~/.i3/vimlaunch.sh"
+##MPD Controls
+mode "mpd" {
+	bindsym l exec "mpc load `mpc lsplaylist | dmenu -b -p 'Load playlist:'`"
+	bindsym a exec "mpc add `mpc listall | dmenu -b -p 'Add song to current playlist:'`"
+	bindsym p exec "mpc play"
+	bindsym n exec "mpc next"
+	bindsym r exec "mpc rm `mpc lsplaylist | dmenu -b -p 'Delete playlist:'`"
+	bindsym s exec "mpc save `dmenu -b -p 'Save playlist as:'`"
+	bindsym e exec "mpc pause"
+	bindsym y exec "mpc toggle"
+	bindsym d exec "mpc del 0"
+	bindsym u exec "mpc volume +`echo '3' | dmenu -b -p 'Raise mpd volume by:'`"
+	bindsym i exec "mpc volume -`echo '3' | dmenu -b -p 'Lower mpd volume by:'`"
+	bindsym Shift+I exec "mpc volume `dmenu -b -p 'Set mpd volume to:'`"
+	bindsym v exec "mpc version | dmenu -b"
+	bindsym t exec "mpc stats | dmenu -b" 
+	bindsym c exec "mpc | dmenu -b"
+	bindsym Shift+C exec "mpc clear"
+	bindsym Shift+s exec "mpc shuffle"
+	bindsym Shift+r exec "mpc repeat"
+	bindsym Shift+A exec "mpc random"
+	bindsym Shift+p exec "mpc prev"
+	bindsym Shift+U exec "mpc update"
+	
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+
+bindsym $mod+Shift+M mode "mpd"
 
 bindsym $mod+Shift+s exec skype
 bindsym $mod+Shift+t exec steam
 bindsym $mod+Shift+g exec firefox
+
+##Dmenu + ii IRC thing
+##Please help me I've gone mad
+
+#pkill all ii, clear ~/irc/, start autorun ii's
+exec_always "pkill ii > ~/.i3iilog"
+exec_always "rm -rf ~/.i3/tempirc/*"
+exec_always "rm -rf ~/irc/*"
+exec_always "~/.i3/autoii.sh"
+
+#Mode for irc things
+mode "irc" {
+	#List servers you're connected to
+	bindsym l exec "ls ~/irc/ | dmenu -b -p 'Servers connected to: '"
+	#List channels from a specific server
+	bindsym c exec "ls ~/irc/$(ls ~/irc/ | dmenu -b -p 'List channels from:')"
+	#Send a message to a server
+	bindsym s exec "echo `dmenu -p 'Server message:' -b` >> ~/irc/$(ls ~/irc/ | dmenu -b -p 'Send message to:')/in"
+	#Send a message to a channel
+	bindsym m exec "~/.i3/chanmesg.sh"
+	#Script for advanced reading of recent irc messages from Channel
+	bindsym r exec "~/.i3/channelread.sh"
+	#Script for advanced reading of recent server messages
+	bindsym Shift+R exec "~/.i3/serverread.sh"
+	#Connect to a server
+	bindsym Shift+c exec "ii -s `dmenu -b -p 'Connect to:'`"
+	#Read persistent channel messages
+	bindsym p exec "~/.i3/perschan.sh"
+	#Read persistent server messages
+	bindsym Shift+p exec "~/.i3/persserv.sh"
+	#dump logs
+	bindsym d exec "mkdir -p ~/.i3irclogs; cp ~/.i3/tempirc/* ~/.i3irclogs/ -rf"
+	#Get notifications of where the new messages are :D
+	bindsym n exec "~/.i3/notify.sh"
+	#Exit this madness
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+
+bindsym $mod+p mode "irc"
+
