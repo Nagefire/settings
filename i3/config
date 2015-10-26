@@ -250,7 +250,7 @@ mode "irc" {
 	#List channels from a specific server
 	bindsym c exec "ls ~/irc/$(ls ~/irc/ | dmenu -b -p 'List channels from:')"
 	#Send a message to a server
-	bindsym s exec "echo `dmenu -p 'Server message:' -b` >> ~/irc/$(ls ~/irc/ | dmenu -b -p 'Send message to:')/in"
+	bindsym s exec "echo `xsel -o | dmenu -p 'Server message:' -b` >> ~/irc/$(ls ~/irc/ | dmenu -b -p 'Send message to:')/in"
 	#Send a message to a channel
 	bindsym m exec "~/.i3/chanmesg.sh"
 	#Script for advanced reading of recent irc messages from Channel
