@@ -22,6 +22,8 @@ fi
 #Remove empty lines
 out=$(echo -e "$out" | grep -v "^$")
 
+echo "$out"
+
 #Set the correct order for dmenu, add to persistent file
-echo -e "$out" | tac | dmenu -b -p "Recent msgs from $server/$channel"
+echo -e "$out" | tac | dmenu -b -p "Recent msgs from $server/$channel" | xsel -i
 echo -e "$out"  >> ~/.i3/tempirc/$server/$channel

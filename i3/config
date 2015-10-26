@@ -267,6 +267,11 @@ mode "irc" {
 	bindsym d exec "mkdir -p ~/.i3irclogs; cp ~/.i3/tempirc/* ~/.i3irclogs/ -rf"
 	#Get notifications of where the new messages are :D
 	bindsym n exec "~/.i3/notify.sh"
+	#Linkopener
+	bindsym Shift+L exec "~/.i3/linkopen.py"
+	#Start a message with the nick of someone in the channel
+	bindsym Shift+N exec "~/.i3/nickmsg.sh"
+	
 	#Exit this madness
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
@@ -274,3 +279,5 @@ mode "irc" {
 
 bindsym $mod+p mode "irc"
 
+#Open any links in xsel -i
+bindsym $mod+Shift+p exec "~/.i3/linkopen.py"

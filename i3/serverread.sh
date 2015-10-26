@@ -12,5 +12,5 @@ fi
 
 out=$(echo -e "$out" | grep -v "^$")
 
-echo -e "$out" | tac | dmenu -b -p 'Recent messages:'
+echo -e "$out" | tac | dmenu -b -p 'Recent messages:' | xsel -i
 echo -e "$out" >> ~/.i3/tempirc/${server}.out
