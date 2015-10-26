@@ -24,7 +24,7 @@ function notify {
 			if [ "$conn" != "" ]; then
 				if [ "$(cat ~/irc/$server/$conn/out)" != \
 				   "$(mkdir -p ~/.i3/tempirc/$server; touch ~/.i3/tempirc/$server/$conn; cat ~/.i3/tempirc/$server/$conn)" ]; then
-					notifies=$notifies"\n"$conn
+					notifies=$notifies"\n"$server"/"$conn
 				fi
 			fi
 		done <<< "$(ls ~/irc/$server | grep -v 'in$' | grep -v 'out$' | grep -v '^$')"
