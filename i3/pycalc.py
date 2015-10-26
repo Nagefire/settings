@@ -1,3 +1,5 @@
+#!/bin/python
+
 import sys
 inp = ''
 for line in sys.stdin:

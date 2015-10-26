@@ -246,35 +246,40 @@ exec_always "~/.i3/autoii.sh"
 #Mode for irc things
 mode "irc" {
 	#List servers you're connected to
-	bindsym l exec "ls ~/irc/ | dmenu -b -p 'Servers connected to: '"
+	bindsym l exec "~/.i3/dmenuirc.sh serverlist"
+	#"ls ~/irc/ | dmenu -b -p 'Servers connected to: '"
 	#List channels from a specific server
-	bindsym c exec "ls ~/irc/$(ls ~/irc/ | dmenu -b -p 'List channels from:')"
+	bindsym c exec "~/.i3/dmenuirc.sh channellist" 
+	#"ls ~/irc/$(ls ~/irc/ | dmenu -b -p 'List channels from:')"
 	#Send a message to a server
-	bindsym s exec "echo `xsel -o | dmenu -p 'Server message:' -b` >> ~/irc/$(ls ~/irc/ | dmenu -b -p 'Send message to:')/in"
+	bindsym s exec "~/.i3/dmenuirc.sh servermessage" 
+	#"echo `xsel -o | dmenu -p 'Server message:' -b` >> ~/irc/$(ls ~/irc/ | dmenu -b -p 'Send message to:')/in"
 	#Send a message to a channel
-	bindsym m exec "~/.i3/chanmesg.sh"
+	bindsym m exec "~/.i3/dmenuirc.sh chanmesg"
 	#Script for advanced reading of recent irc messages from Channel
-	bindsym r exec "~/.i3/channelread.sh"
+	bindsym r exec "~/.i3/dmenuirc.sh channelread"
 	#Script for advanced reading of recent server messages
-	bindsym Shift+R exec "~/.i3/serverread.sh"
+	bindsym Shift+R exec "~/.i3/dmenuirc.sh serverread"
 	#Connect to a server
-	bindsym Shift+c exec "ii -s `dmenu -b -p 'Connect to:'`"
+	bindsym Shift+c exec "~/.i3/dmenuirc.sh connect" 
+	#"ii -s `dmenu -b -p 'Connect to:'`"
 	#Read persistent channel messages
-	bindsym p exec "~/.i3/perschan.sh"
+	bindsym p exec "~/.i3/dmenuirc.sh perschan"
 	#Read persistent server messages
-	bindsym Shift+p exec "~/.i3/persserv.sh"
+	bindsym Shift+p exec "~/.i3/dmenuirc.sh persserv"
 	#dump logs
-	bindsym d exec "mkdir -p ~/.i3irclogs; cp ~/.i3/tempirc/* ~/.i3irclogs/ -rf"
+	bindsym d exec "~/.i3/dmenuirc.sh logdump" 
+	#"mkdir -p ~/.i3irclogs; cp ~/.i3/tempirc/* ~/.i3irclogs/ -rf"
 	#Get notifications of where the new messages are :D
-	bindsym n exec "~/.i3/notify.sh"
+	bindsym n exec "~/.i3/dmenuirc.sh notify"
 	#Linkopener
 	bindsym Shift+L exec "~/.i3/linkopen.py"
 	#Start a message with the nick of someone in the channel
-	bindsym Shift+N exec "~/.i3/nickmsg.sh"
+	bindsym Shift+N exec "~/.i3/dmenuirc.sh nickmsg"
 	#Fix that recent messages being empty but there be notifications for channels
-	bindsym f exec "~/.i3/channelfix.sh"
+	bindsym f exec "~/.i3/dmenuirc.sh channelfix"
 	#Server fix
-	bindsym Shift+F exec "~/.i3/serverfix.sh"
+	bindsym Shift+F exec "~/.i3/dmenuirc.sh serverfix"
 	
 	#Exit this madness
 	bindsym Escape mode "default"
