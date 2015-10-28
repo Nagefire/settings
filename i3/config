@@ -238,10 +238,7 @@ bindsym $mod+Shift+g exec firefox
 ##Please help me I've gone mad
 
 #pkill all ii, clear ~/irc/, start autorun ii's
-exec_always "pkill ii > ~/.i3iilog"
-exec_always "rm -rf ~/.i3/tempirc/*"
-exec_always "rm -rf ~/irc/*"
-exec_always "~/.i3/autoii.sh"
+exec_always "~/.i3/dmenuirc.sh startup ~/.dmenuirc/autoii"
 
 #Mode for irc things
 mode "irc" {
@@ -280,6 +277,9 @@ mode "irc" {
 	bindsym f exec "~/.i3/dmenuirc.sh channelfix"
 	#Server fix
 	bindsym Shift+F exec "~/.i3/dmenuirc.sh serverfix"
+	
+	#Restart dmenuirc
+	bindsym q exec "~/.i3/dmenuirc.sh startup ~/.dmenuirc/autoii"
 	
 	#Exit this madness
 	bindsym Escape mode "default"
