@@ -21,7 +21,7 @@ servers = (
     address = "localhost";
     chatnet = "bitlbee";
     port = "6667";
-    password = "aftkhan";
+    password = "WrongPass";
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
@@ -33,6 +33,14 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
+  },
+  {
+    address = "irc.twitch.tv";
+    chatnet = "twitch";
+    port = "6667";
+    password = "oauth:Wrong";
+    use_ssl = "no";
+    ssl_verify = "no";
   }
 );
 
@@ -40,20 +48,21 @@ chatnets = {
   esper = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify IntentionallyWrong";
+    autosendcmd = "/^msg nickserv identify WrongPass";
   };
   freenode = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify IntentionallyWrong";
+    autosendcmd = "/^msg nickserv identify WrongPass";
   };
   nixers = { type = "IRC"; nick = "aftix"; };
   bitlbee = { type = "IRC"; nick = "aftix"; };
   bees = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify IntentiallyWrong";
+    autosendcmd = "/^msg nickserv identify WrongPass";
   };
+  twitch = { type = "IRC"; };
 };
 
 channels = (
@@ -127,6 +136,7 @@ statusbar = {
         act = { priority = "10"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
+        usercount = { };
       };
     };
 

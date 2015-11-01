@@ -1,6 +1,6 @@
-XTerm*locale: true
-XTerm*metaSendsEscape:true
-XTerm*saveLines:4096
+XTerm*locale:                          true
+XTerm*metaSendsEscape:                 true
+XTerm*saveLines:                       4096
 
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry
@@ -12,16 +12,16 @@ XTerm*saveLines:4096
 ! URxvt*skipScroll:                     boolean
 ! URxvt*pastableTabs:                   boolean
 ! URxvt*scrollstyle:                    mode
-URxvt*scrollBar:                      false
+URxvt*scrollBar:                       false
 ! URxvt*scrollBar_right:                boolean
 ! URxvt*scrollBar_floating:             boolean
 ! URxvt*scrollBar_align:                mode
 ! URxvt*thickness:                      number
-URxvt*scrollTtyOutput:                false
-URxvt*scrollTtyKeypress:              true
-URxvt*scrollWithBuffer:               true
+URxvt*scrollTtyOutput:                 false
+URxvt*scrollTtyKeypress:               true
+URxvt*scrollWithBuffer:                true
 ! URxvt*inheritPixmap:                  boolean
-URxvt*transparent:                    false
+URxvt*transparent:                     false
 ! URxvt*tintColor:                      color
 ! URxvt*shading:                        number
 ! URxvt*blurRadius:                     HxV
@@ -35,11 +35,11 @@ URxvt*transparent:                    false
 ! URxvt*mouseWheelScrollPage:           boolean
 ! URxvt*tripleclickwords:               boolean
 ! URxvt*insecure:                       boolean
-URxvt*cursorUnderline:                false
+URxvt*cursorUnderline:                 false
 ! URxvt*cursorBlink:                    boolean
 ! URxvt*pointerBlank:                   boolean
-URxvt*foreground:                     #FFFFFF
-URxvt*background:                     #000000
+URxvt*foreground:                      #FFFFFF
+URxvt*background:                      #000000
 ! URxvt*color0:                         color
 ! URxvt*color1:                         color
 ! URxvt*color2:                         color
@@ -65,13 +65,13 @@ URxvt*background:                     #000000
 ! URxvt*troughColor:                    color
 ! URxvt*highlightColor:                 color
 ! URxvt*highlightTextColor:             color
-URxvt*cursorColor:                    purple
+URxvt*cursorColor:                     purple
 ! URxvt*cursorColor2:                   color
 ! URxvt*pointerColor:                   color
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-URxvt*font:                           xft:Terminus
+URxvt*font:                            xft:Terminus
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
@@ -82,7 +82,7 @@ URxvt*font:                           xft:Terminus
 ! URxvt*imFont:                         fontname
 ! URxvt*title:                          string
 ! URxvt*iconName:                       string
-URxvt*saveLines:                      4096
+URxvt*saveLines:                       4096
 ! URxvt*buffered:                       boolean
 ! URxvt*depth:                          number
 ! URxvt*visual:                         number
@@ -92,8 +92,8 @@ URxvt*saveLines:                      4096
 ! URxvt*externalBorder:                 number
 ! URxvt*internalBorder:                 number
 ! URxvt*borderLess:                     boolean
-URxvt*lineSpace:                      -1
-URxvt*letterSpace:                    0
+URxvt*lineSpace:                       -1
+URxvt*letterSpace:                     0
 ! URxvt*skipBuiltinGlyphs:              boolean
 ! URxvt*pointerBlankDelay:              number
 ! URxvt*backspacekey:                   string
@@ -102,17 +102,17 @@ URxvt*letterSpace:                    0
 ! URxvt*modifier:                       modifier
 ! URxvt*cutchars:                       string
 ! URxvt*answerbackString:               string
-URxvt*secondaryScreen:                true
-URxvt*secondaryScroll:                false
-URxvt*secondaryWheel:		      1
+URxvt*secondaryScreen:                 true
+URxvt*secondaryScroll:                 false
+URxvt*secondaryWheel:		           1
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
-URxvt*perl-ext-common:                default,tabbed
-URxvt*perl-ext:                       default,url-select
-! URxvt*iso14755:                       boolean
+URxvt*perl-ext-common:                 default,tabbed,clipboard
+URxvt*perl-ext:                        default,url-select
+URxvt*iso14755:                        false
 ! URxvt*iso14755_52:                    boolean
 ! URxvt*xrm:                            string
-URxvt*keysym.M-u:                     perl:url-select:select_next
+URxvt*keysym.M-u:                      perl:url-select:select_next
 ! URxvt*background.border:              boolean
 ! URxvt*background.expr:                string
 ! URxvt*background.interval:            seconds
@@ -123,7 +123,7 @@ URxvt*keysym.M-u:                     perl:url-select:select_next
 ! URxvt*matcher.launcher.*:             string
 ! URxvt*matcher.pattern.*:              string
 ! URxvt*matcher.rend.0:                 Uline Bold fg5
-URxvt.colorUL:			      #4682B4
+URxvt.colorUL:                         #4682B4
 ! URxvt*remote-clipboard.fetch:         string
 ! URxvt*remote-clipboard.store:         string
 ! URxvt*searchable-scrollback:          string
@@ -131,10 +131,11 @@ URxvt.colorUL:			      #4682B4
 ! URxvt*selection-pastebin.cmd:         string
 ! URxvt*selection-pastebin.url:         string
 ! URxvt*selection.pattern-0:            string
-URxvt*tab-bg:                         #909090
-URxvt*tab-fg:                         #909090
+URxvt*tab-bg:                          #909090
+URxvt*tab-fg:                          #909090
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
-URxvt*url-launcher:                   /usr/bin/xdg-open
-URxvt*url-select.launcher:	      /usr/bin/xdg-open
-URxvt*url-select.underline:	      true
+URxvt*url-launcher:                    /usr/bin/xdg-open
+URxvt*url-select.launcher:	           /usr/bin/xdg-open
+URxvt*url-select.underline:	           true
+URxvt.keysym.Shift-Control-V:          perl:clipboard:paste
