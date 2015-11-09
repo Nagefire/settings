@@ -1,5 +1,5 @@
 #script to copy/paste text in URXVT
-#Put this in /usr/lib/urxvt/perl/clipboard
+#goes in /usr/lib/urxvt/clipboard
 #! perl
 
 sub on_sel_grab {

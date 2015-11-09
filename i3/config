@@ -218,10 +218,10 @@ mode "mpd" {
 	bindsym t exec "mpc stats | dmenu -b" 
 	bindsym c exec "mpc | dmenu -b"
 	bindsym Shift+C exec "mpc clear"
-	bindsym Shift+s exec "mpc shuffle"
-	bindsym Shift+r exec "mpc repeat"
+	bindsym Shift+S exec "mpc shuffle"
+	bindsym Shift+R exec "mpc repeat"
 	bindsym Shift+A exec "mpc random"
-	bindsym Shift+p exec "mpc prev"
+	bindsym Shift+P exec "mpc prev"
 	bindsym Shift+U exec "mpc update"
 	
 	bindsym Escape mode "default"
