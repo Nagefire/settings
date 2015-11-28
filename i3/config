@@ -113,6 +113,8 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+#Advanced dmenu workspace-ing
+bindsym $mod+grave exec "~/.i3/advworkspace.sh open"
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move workspace 1
@@ -125,6 +127,8 @@ bindsym $mod+Shift+ampersand move workspace 7
 bindsym $mod+Shift+asterisk move workspace 8
 bindsym $mod+Shift+parenleft move workspace 9
 bindsym $mod+Shift+parenright move workspace 10
+#Advanced move focus dmenu thing
+bindsym $mod+Shift+asciitilde exec "~/.i3/advworkspace.sh send"
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -177,7 +181,7 @@ bindsym $mod+r mode "resize"
 bar {
 	status_command i3status
 	position bottom
-	#tray_output none
+	tray_output HDMI-0
 	#output DFP2
 	colors {
 		background $back-inact
@@ -189,6 +193,21 @@ bar {
 		urgent_workspace   $bor-ur $back-urgen $t-ur
 	}
 }
+
+#DMENU IRC POPUPS YAY
+bar {
+	id dmenuirc 
+	status_command "~/.i3/ircstatus.sh"
+	mode invisible
+	position top
+	tray_output none
+	workspace_buttons no
+	colors {
+		background #ff0000
+		statusline #ffffff
+	}
+}
+exec_always --no-startup-id "~/.i3/ircstatus.sh"
 
 ##Use dmenu to play whatever is in xsel with mpv, store output in a log
 bindsym $mod+m exec "mpv `xsel -o | dmenu -p 'Play with mvp: ' -b` > ~/.i3mpvlog"
