@@ -21,7 +21,7 @@ servers = (
     address = "localhost";
     chatnet = "bitlbee";
     port = "6667";
-    password = "WrongPass";
+    password = "aftkhan";
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
@@ -38,7 +38,7 @@ servers = (
     address = "irc.twitch.tv";
     chatnet = "twitch";
     port = "6667";
-    password = "oauth:Wrong";
+    password = "oauth:kmt7emx1i6u5dsign4kvfennkpx07u";
     use_ssl = "no";
     ssl_verify = "no";
   }
@@ -48,19 +48,19 @@ chatnets = {
   esper = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify WrongPass";
+    autosendcmd = "/^msg nickserv identify aft";
   };
   freenode = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify WrongPass";
+    autosendcmd = "/^msg nickserv identify aft";
   };
   nixers = { type = "IRC"; nick = "aftix"; };
   bitlbee = { type = "IRC"; nick = "aftix"; };
   bees = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify WrongPass";
+    autosendcmd = "/^msg nickserv identify aft";
   };
   twitch = { type = "IRC"; };
 };
@@ -204,7 +204,10 @@ settings = {
     autolog = "yes";
   };
 };
-hilights = ( { } );
+hilights = (
+  { text = "aftix"; nick = "no"; word = "no"; },
+  { text = "aftix"; nick = "no"; word = "yes"; }
+);
 logs = { };
 ignores = ( );
 aliases = {
@@ -251,18 +254,8 @@ windows = {
       }
     );
   };
-  5 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "&steam";
-        tag = "bitlbee";
-      }
-    );
-  };
-  6 = { name = "irssi-rss"; };
-  7 = {
+  5 = { name = "irssi-rss"; };
+  6 = {
     items = (
       {
         type = "CHANNEL";
@@ -272,5 +265,9 @@ windows = {
       }
     );
   };
+  7 = { name = "hilight"; sticky = "yes"; };
 };
-mainwindows = { 6 = { first_line = "1"; lines = "67"; }; };
+mainwindows = {
+  2 = { first_line = "8"; lines = "60"; };
+  7 = { first_line = "1"; lines = "7"; };
+};
