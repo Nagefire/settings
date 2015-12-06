@@ -21,7 +21,7 @@ servers = (
     address = "localhost";
     chatnet = "bitlbee";
     port = "6667";
-    password = "aftkhan";
+    password = "IntentionallyWrong";
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
@@ -38,7 +38,7 @@ servers = (
     address = "irc.twitch.tv";
     chatnet = "twitch";
     port = "6667";
-    password = "oauth:kmt7emx1i6u5dsign4kvfennkpx07u";
+    password = "oauth:NuhUh";
     use_ssl = "no";
     ssl_verify = "no";
   }
@@ -48,19 +48,19 @@ chatnets = {
   esper = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify aft";
+    autosendcmd = "/^msg nickserv identify TotallyLegitPass";
   };
   freenode = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify aft";
+    autosendcmd = "/^msg nickserv identify Haha";
   };
   nixers = { type = "IRC"; nick = "aftix"; };
   bitlbee = { type = "IRC"; nick = "aftix"; };
   bees = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify aft";
+    autosendcmd = "/^msg nickserv identify Haha";
   };
   twitch = { type = "IRC"; };
 };
