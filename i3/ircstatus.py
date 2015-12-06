@@ -14,6 +14,7 @@ fifodir="/home/aftix/irc"
 while True:
 	#Get i3status output for this cycle
 	p = subprocess.Popen(["i3status"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	p.stdout.readline()
 	status = (p.stdout.readline()).decode('utf-8')[:-1]
 	#Terminate i3status - it is a continous program, we don't need it anymore
 	p.terminate()
