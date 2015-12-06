@@ -1,0 +1,3 @@
+#!/bin/sh
+#Put this in ~/.config/
+export DMENU="dmenu -b -fn 'Terminus-10' -sf green -sb red -nb #ffffff -nf #000000"
