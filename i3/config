@@ -299,3 +299,7 @@ bindsym $mod+g exec --no-startup-id "~/.i3/gamelaunch.sh steam"
 #Nonsteam game launcher w/ demnu
 #But the .desktop files in ~/Games/nonsteam for them to show up
 bindsym $mod+Shift+G exec --no-startup-id "~/.i3/gamelaunch.sh nonsteam"
+
+#Dmenu filebrowser
+bindsym $mod+f exec --no-startup-id "~/.i3/dmenufm.sh ~"
+bindsym $mod+Shift+F exec --no-startup-id "~/.i3/dmenufm.sh"
