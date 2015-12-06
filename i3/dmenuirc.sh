@@ -70,7 +70,9 @@ function serverread {
 	out=$(echo -e "$out" | grep -v "^$")
 	
 	echo -e "$out" | tac | $DMENU -p 'Recent messages:' | xsel -i
-	echo -e "$out" >> $templog/${server}.out
+	if [[ "$out" != "" ]]; then
+		echo -e "$out" >> $templog/${server}.out
+	fi
 }
 
 function chanmesg {
@@ -104,7 +106,9 @@ function channelread {
 	out=$(echo -e "$out" | grep -v "^$")
 	#Set the correct order for dmenu, add to persistent file
 	echo -e "$out" | tac | $DMENU -p "Recent msgs from $server/$channel" | xsel -i
-	echo -e "$out"  >> $templog/$server/$channel
+	if [[ "$out" != "" ]]; then
+		echo -e "$out"  >> $templog/$server/$channel
+	fi
 }
 
 function nickmsg {
