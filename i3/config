@@ -179,7 +179,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command i3status
+	status_command ~/.i3/ircstatus.py
 	position bottom
 	#tray_output 
 	#output DFP2
@@ -193,21 +193,6 @@ bar {
 		urgent_workspace   $bor-ur $back-urgen $t-ur
 	}
 }
-
-#DMENU IRC POPUPS YAY
-#bar {
-#	id dmenuirc 
-#	status_command "~/.i3/ircstatus.sh"
-#	mode invisible
-#	position top
-#	tray_output none
-#	workspace_buttons no
-#	colors {
-#		background #ff0000
-#		statusline #ffffff
-#	}
-#}
-#exec_always --no-startup-id "~/.i3/ircstatus.sh"
 
 ##Use dmenu to play whatever is in xsel with mpv, store output in a log
 bindsym $mod+m exec --no-startup-id "mpv `xsel -o | dmenu -p 'Play with mvp: ' -b` > ~/.i3mpvlog"
@@ -266,7 +251,7 @@ mode "irc" {
 	bindsym c exec --no-startup-id "~/.i3/dmenuirc.sh channellist" 
 	#"ls ~/irc/$(ls ~/irc/ | dmenu -b -p 'List channels from:')"
 	#Send a message to a server
-	bindsym s exec --no-=startup-id "~/.i3/dmenuirc.sh servermessage" 
+	bindsym s exec --no-startup-id "~/.i3/dmenuirc.sh servermessage" 
 	#"echo `xsel -o | dmenu -p 'Server message:' -b` >> ~/irc/$(ls ~/irc/ | dmenu -b -p 'Send message to:')/in"
 	#Send a message to a channel
 	bindsym m exec --no-startup-id "~/.i3/dmenuirc.sh chanmesg"
