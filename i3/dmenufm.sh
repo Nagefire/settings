@@ -7,7 +7,7 @@ else
 fi
 
 if [[ "$1" == "" ]]; then
-	cd $(cat $HOME/.local/share/dmenufm)
+	cd "$(cat $HOME/.local/share/dmenufm)"
 else
 	cd $1
 fi
