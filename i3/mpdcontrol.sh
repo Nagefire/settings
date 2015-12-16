@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -f $HOME/.config/dmenurc ]; then
 	source $HOME/.config/dmenurc
