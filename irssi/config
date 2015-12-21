@@ -48,19 +48,19 @@ chatnets = {
   esper = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify ";
+    autosendcmd = "/^msg nickserv identify";
   };
   freenode = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify ";
+    autosendcmd = "/^msg nickserv identify";
   };
   nixers = { type = "IRC"; nick = "aftix"; };
   bitlbee = { type = "IRC"; nick = "aftix"; };
   bees = {
     type = "IRC";
     nick = "aftix";
-    autosendcmd = "/^msg nickserv identify ";
+    autosendcmd = "/^msg nickserv identify";
   };
   twitch = { type = "IRC"; };
 };
@@ -137,6 +137,8 @@ statusbar = {
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
         usercount = { };
+        typing_notice = { };
+        join_notice = { };
       };
     };
 
@@ -224,6 +226,9 @@ settings = {
     awl_viewer = "no";
     awl_hide_empty = "0";
     awl_sort = "refnum";
+    nicklist_height = "60";
+    nicklist_width = "10";
+    bitlbee_typing_allwin = "yes";
   };
 };
 hilights = (
@@ -244,8 +249,26 @@ aliases = {
   wl = "window left";
   wr = "window right";
 };
+keyboard = (
+  { key = "meta-s"; id = "change_window"; data = "1"; },
+  { key = "meta_t"; id = "change_window"; data = "12"; },
+  { key = "meta-v"; id = "command"; data = "AWAY away"; },
+  { key = "meta-b"; id = "command"; data = "AWAY"; },
+  { key = "meta-j"; id = "command"; data = "nicklist scroll -10"; },
+  { key = "meta-k"; id = "command"; data = "blist online skypeweb"; },
+  { key = "meta-K"; id = "command"; data = "blist away skypeweb"; },
+  { key = "meta-l"; id = "command"; data = "blist online steam"; },
+  { key = "meta-L"; id = "command"; data = "blist away steam"; },
+  { key = "meta-h"; id = "command"; data = "nicklist scroll +10"; }
+);
 windows = {
-  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  1 = {
+    immortal = "yes";
+    name = "(status)";
+    level = "ALL";
+    sticky = "yes";
+    parent = "2";
+  };
   2 = {
     items = (
       {
@@ -255,6 +278,7 @@ windows = {
         tag = "esper";
       }
     );
+    sticky = "yes";
   };
   3 = {
     items = (
@@ -265,19 +289,22 @@ windows = {
         tag = "bees";
       }
     );
+    sticky = "yes";
+    parent = "2";
   };
   4 = {
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "&skypeweb";
+        name = "&bitlbee";
         tag = "bitlbee";
       }
     );
+    sticky = "yes";
+    parent = "2";
   };
-  5 = { name = "irssi-rss"; };
-  6 = {
+  5 = {
     items = (
       {
         type = "CHANNEL";
@@ -286,10 +313,23 @@ windows = {
         tag = "bitlbee";
       }
     );
+    sticky = "yes";
+    parent = "2";
   };
+  6 = { name = "irssi-rss"; sticky = "yes"; parent = "2"; };
   7 = { name = "hilight"; sticky = "yes"; };
+  8 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "VirtualPineapple";
+        tag = "bitlbee";
+      }
+    );
+  };
 };
 mainwindows = {
-  2 = { first_line = "8"; lines = "60"; };
-  7 = { first_line = "1"; lines = "7"; };
+  2 = { first_line = "10"; lines = "54"; };
+  7 = { first_line = "1"; lines = "9"; };
 };
