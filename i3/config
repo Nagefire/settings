@@ -290,6 +290,22 @@ mode "irc" {
 
 bindsym $mod+p mode "irc"
 
+#Dmenu rss :D :D :D
+#rssm in another repo
+exec "rssm -F"
+
+mode "rss" {
+	bindsym r exec --no-startup-id "~/.i3/dmenurss.sh readNewItems"
+	bindsym p exec --no-startup-id "~/.i3/dmenurss.sh readItems"
+	bindsym n exec --no-startup-id "~/.i3/dmenurss.sh notify"
+	bindsym d exec --no-startup-id "~/.i3/dmenurss.sh readDesc"
+	
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+s mode "rss"
+
 #Open any links in xsel -i
 bindsym $mod+Shift+p exec --no-startup-id "~/.i3/linkopen.py"
 
