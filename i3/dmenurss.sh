@@ -16,7 +16,7 @@ function readNewItems {
 	touch $readPath/$tag
 	out=""
 	while read line; do
-		if [[ $(grep "$line" "$readPath/$tag") == "" ]]; then
+		if ! grep -q "$line" "$readPath/$tag"; then
 			out=$out"\n"$line
 		fi
 	done < "$rssPath/$tag"
@@ -50,12 +50,12 @@ function readNewItems {
 	fi
 	
 	i=1
-	while [[ $(echo "${items[$i]}" | grep "$chosen") == "" ]]; do
+	while ! echo "${items[$i]}" | grep -q "$chosen"; do
 		i=$(($i+1))
 	done
 	
 	link=$(echo -e "${items[i]}" | grep -v "^$" | $DMENU)
-	if [[ $(echo "$link" | grep "link: ") != "" ]]; then
+	if echo "$link" | grep -q "link: "; then
 		xdg-open $(echo "$link" | sed "s/link: //")
 	fi
 	echo "$link" | sed -r "s/^[^:]+: //" | xsel -i
@@ -96,12 +96,12 @@ function readItems {
 	fi
 	
 	i=1
-	while [[ $(echo "${items[$i]}" | grep "$chosen") == "" ]]; do
+	while ! echo "${items[$i]}" | grep -q "$chosen"; do
 		i=$(($i+1))
 	done
 	
 	link=$(echo -e "${items[$i]}" | grep -v "^$" | $DMENU)
-	if [[ $(echo "$link" | grep "^link: ") != "" ]]; then
+	if echo "$link" | grep -q "^link: "; then
 		xdg-open $(echo "$link" | sed "s/link: //")
 	fi
 	echo "$link" | sed -r "s/^[^:]+: //" | xsel -i
@@ -115,17 +115,19 @@ function readDesc {
 	names=""
 	descs=""
 	
+	
+	touch "$rssPath/$tag"
 	revFile=$(tac "$rssPath/$tag")
 	
 	while read line; do
-		if [[ $(echo -e "$names" | grep $(echo "$line" | sed -r "s/:.+$//")) == "" ]]; then
+		if ! echo -e "$names" | grep -q "$(echo "$line" | sed -r "s/:.+$//")"; then
 			names=$names"\n"$(echo -e "$line" | sed -r "s/:.+$//")
 			descs=$descs"\n"$line
 		fi
 	done <<< "$revFile"
 	
 	link=$(echo -e "$descs" | grep -v "^$" | tac | $DMENU)
-	if [[ $(echo "$link" | grep "^link: " ) != "" ]]; then
+	if echo "$link" | grep -q "^link: "; then
 		xdg-open $(echo "$link" | sed "s/^link: //")
 	fi
 	echo "$link" | sed -r "s/^[^:]+: //" | xsel -i
@@ -139,8 +141,10 @@ function notify {
 		touch "$readPath/$tag"
 		while read line; do
 			if [[ "$line" != "ITEMS" && "$line" != "" && "$line" != "\n" ]]; then
-				if [[ $(cat $readPath/$tag | grep "$line") == "" ]]; then
+				tmpLine=$(echo "$line" | sed -e "s/\"/\\\"/g" -e "s/\#/\\\#/g")
+				if ! fgrep -xq "$tmpLine" "$readPath/$tag" && ! fgrep -q "description:"; then
 					notify=$(echo -e "$notify\n$tag")
+					echo "$line"
 					break
 				fi
 			fi
