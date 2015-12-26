@@ -38,7 +38,7 @@ function readNewItems {
 	
 	i=1
 	titles=""
-	while [[ $i < ${#items[@]} ]]; do
+	while [ "$i" -le "$((${#items[@]} - 1))" ]; do
 		titles=${titles}"\n"$(echo -e "${items[$i]}" | grep "title: " | sed "s/^title: //")
 		i=$(($i+1))
 	done
@@ -84,7 +84,7 @@ function readItems {
 	
 	i=1
 	titles=""
-	while [[ $i < ${#items[@]} ]]; do
+	while [ "$i" -le "$((${#items[@]} + 1))" ]; do
 		titles=${titles}"\n"$(echo -e "${items[$i]}" | grep "title: " | sed "s/^title: //")
 		i=$(($i+1))
 	done
@@ -142,7 +142,7 @@ function notify {
 		while read line; do
 			if [[ "$line" != "ITEMS" && "$line" != "" && "$line" != "\n" ]]; then
 				tmpLine=$(echo "$line" | sed -e "s/\"/\\\"/g" -e "s/\#/\\\#/g")
-				if ! fgrep -xq "$tmpLine" "$readPath/$tag" && ! fgrep -q "description:"; then
+				if ! fgrep -x -q "$tmpLine" "$readPath/$tag" && ! echo "$line" | fgrep -q "description:"; then
 					notify=$(echo -e "$notify\n$tag")
 					echo "$line"
 					break

@@ -11,7 +11,10 @@ hide_edge_borders both
 
 # hide dem titles
 #for_window [class="^.*"] border pixel 1
-#for_window [title="^float$"] floating enable
+for_window [title="^float$"] floating enable
+
+#Float mpv
+for_window [class="mpv"] floating enable
 
 #colors
 #solarized theme, weird
@@ -50,7 +53,7 @@ bindsym $mod+shift+Q kill
 bindsym $mod+d exec "dmenu_run -b"
 #bindsym $mod+s exec pmenu
 
-bindsym $mod+shift+d exec i3-dmenu-desktop
+#bindsym $mod+shift+d exec i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -100,7 +103,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindcode $mod+d focus child
+bindsym $mod+Shift+D focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -176,10 +179,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Start i3bar to display a workspace bar with conky
 bar {
-	status_command i3status
+	status_command $HOME/.i3/conkybar
 	position bottom
 	#tray_output 
 	#output DFP2
@@ -319,3 +321,6 @@ bindsym $mod+Shift+G exec --no-startup-id "~/.i3/gamelaunch.sh nonsteam"
 #Dmenu filebrowser
 bindsym $mod+f exec --no-startup-id "~/.i3/dmenufm.sh ~"
 bindsym $mod+Shift+F exec --no-startup-id "~/.i3/dmenufm.sh"
+
+#jump to urgent window
+bindsym $mod+x [urgent=latest] focus
