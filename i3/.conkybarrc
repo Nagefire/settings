@@ -1,0 +1,97 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+alignment top_left
+background no
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont DejaVu Sans Mono:size=12
+gap_x 5
+gap_y 60
+minimum_size 5 5
+net_avg_samples 2
+no_buffers yes
+out_to_x no
+out_to_console yes
+out_to_ncurses no
+out_to_stderr no
+extra_newline no
+own_window no
+own_window_class Conky
+own_window_type desktop
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+max_text_width 0
+total_run_times 0.0
+short_units yes
+if_up_strictness address
+use_spacer left
+override_utf8_locale no
+
+mpd_host localhost
+mpd_port 6600
+
+TEXT
+[\
+#sound. If the sound is [off]. then display a ♪: and have it be green
+{"full_text": \
+  ${if_match "${exec amixer get Master | grep "Front Left:" | grep "off"}"!=""}"♪: 0%"\
+  ${else}"Vol: ${exec amixer get Master | grep "Front Left: " | sed -r -e "s/[^\[]+\[//" -e "s/\].+\$//"}"\
+  ${endif}, \
+ "color" : \
+  ${if_match "${exec amixer get Master | grep "Front Left:" | grep "off"}"!=""}"\#00ff00"\
+  ${else}"\#ffffff"${endif}},\
+#Only display MPD if it is playing
+${if_match "${mpd_status}"!="Stopped"}\
+#MPD status
+{"full_text" : "MPD status: ${mpd_status}", "color" : "\#ffffff"},\
+#MPD playing
+{"full_text" : "MPD playing: ${mpd_artist} - $mpd_title", "color" : "\#ffffff"},\
+#MPD played/duration
+{"full_text" : "MPD time: ${mpd_elapsed}/${mpd_length}"},${endif}\
+#Free space on the drive
+{"full_text": "Disk: ${fs_free /} Free", "color" : "\#ffffff"},\
+#CPU Temperature
+{"full_text": "CPU: ${acpitemp}°C", "color" : "\#ffffff"},\
+#RAM usage
+{"full_text" : "RAM: ${memperc}%", "color" : \
+ ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif}},\
+#CPU usage
+{"full_text" : "CPU%: ${cpu}%", "color" : \
+ ${if_match ${cpu}<85}"\#ffffff"${else}"\#ff0000"${endif}},\
+ #Date: Day,Month date Hr:Min AM/PM
+ {"full_text" : "${exec date +"%a, %m %d %I:%M %p"}", "color" : "\#ffffff"}],
