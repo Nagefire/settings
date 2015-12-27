@@ -172,6 +172,8 @@ mode "resize" {
 	bindsym Right resize shrink right 10 px or 10 ppt
 	bindsym Shift+Right resize grow right 10 px or 10 ppt
 	
+	bindsym Shift+question exec --no-startup-id "~/.i3/dmenuhelp.sh resize"
+	
 	#back to normal: Enter or Escape
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -230,6 +232,8 @@ mode "mpd" {
 	bindsym Shift+P exec --no-startup-id "~/.i3/mpdcontrol.sh prev"
 	bindsym Shift+U exec --no-startup-id "~/.i3/mpdcontrol.sh update"
 	
+	bindsym Shift+question exec --no-startup-id "~/.i3/dmenuhelp.sh mpd"
+	
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -285,6 +289,8 @@ mode "irc" {
 	#Restart dmenuirc
 	bindsym q exec --no-startup-id "~/.i3/dmenuirc.sh startup ~/.dmenuirc/autoii"
 	
+	bindsym Shift+question exec --no-startup-id "~/.i3/dmenuhelp.sh irc"
+	
 	#Exit this madness
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
@@ -301,6 +307,8 @@ mode "rss" {
 	bindsym p exec --no-startup-id "~/.i3/dmenurss.sh readItems"
 	bindsym n exec --no-startup-id "~/.i3/dmenurss.sh notify"
 	bindsym d exec --no-startup-id "~/.i3/dmenurss.sh readDesc"
+	
+	bindsym Shift+question exec --no-startup-id "~/.i3/dmenuhelp.sh rss"
 	
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -324,3 +332,6 @@ bindsym $mod+Shift+F exec --no-startup-id "~/.i3/dmenufm.sh"
 
 #jump to urgent window
 bindsym $mod+x [urgent=latest] focus
+
+#dmenu help for normal mode
+bindsym $mod+Shift+question exec --no-startup-id "~/.i3/dmenuhelp.sh normal"
