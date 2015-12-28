@@ -12,6 +12,11 @@ hide_edge_borders both
 # hide dem titles
 #for_window [class="^.*"] border pixel 1
 for_window [title="^float$"] floating enable
+#disable floating on tf2
+for_window [class="hl2_linux"] floating disable
+
+#transparency on urxvt
+for_window [class="urxvt"] exec --no-startup-id "compton-trans -c 85%"
 
 #Float mpv
 for_window [class="mpv"] floating enable
@@ -200,6 +205,9 @@ bar {
 
 ##Use dmenu to play whatever is in xsel with mpv, store output in a log
 bindsym $mod+m exec --no-startup-id "~/.i3/miscscripts.sh mpvplay"
+#Use feh to view a file
+bindsym $mod+b exec --no-startup-id "~/.i3/miscscripts.sh fehview"
+
 ##Dcalculator!
 bindsym $mod+c exec --no-startup-id "~/.i3/miscscripts.sh dcalc"
 ##Volume controls

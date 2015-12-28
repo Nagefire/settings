@@ -26,4 +26,8 @@ function togglevol {
 	amixer sset Master toggle
 }
 
+function fehview {
+	feh "$(xsel -o | $DMENU -p 'View with feh: ')"
+}
+
 $1

@@ -39,7 +39,8 @@ URxvt*cursorUnderline:                 false
 ! URxvt*cursorBlink:                    boolean
 ! URxvt*pointerBlank:                   boolean
 URxvt*foreground:                      #FFFFFF
-URxvt*background:                      #000000
+URxvt*depth:                           32
+URxvt*background:                      [85]#000000
 ! URxvt*color0:                         color
 ! URxvt*color1:                         color
 ! URxvt*color2:                         color

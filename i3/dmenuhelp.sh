@@ -51,7 +51,8 @@ function normal {
 				f: launch dmenu file manager from $HOME
 				F: launch dmenu file manager where it last left off
 				x: jump to the newest urgent (red) window
-				?: open this help in any mode"
+				?: open this help in any mode
+				b: View whatever is in xsel -o in feh"
 	echo -e "$commands" | sed -r -e "s/\t//g" | $DMENU -p "Mod + "
 }
 
