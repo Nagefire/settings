@@ -24,7 +24,7 @@ while [[ "$response" != "" ]]; do
 		ext=$(xdg-mime query filetype $response)
 		results=$(grep "$ext" $HOME/.local/share/dmenufm.allowed)
 		if [[ "$results" != "" ]]; then
-			xdg-open $response
+			xdg-open "$response"
 			break
 		fi
 	fi

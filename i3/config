@@ -4,7 +4,7 @@ set $mod Mod4
 
 #STARTUP
 
-exec compton --config ~/.comptonrc --backend glx --vsync opengl-swc --paint-on-overlay -b
+exec compton --config ~/.comptonrc -b
 exec feh --randomize --bg-scale ~/.wallpaper/*
 # hide dem borders
 hide_edge_borders both
