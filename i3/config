@@ -1,6 +1,7 @@
 #Solarized-ish theme
 
 set $mod Mod4
+set $unmod Mod1
 
 #STARTUP
 
@@ -20,6 +21,10 @@ for_window [class="urxvt"] exec --no-startup-id "compton-trans -c 85%"
 
 #Float mpv
 for_window [class="mpv"] floating enable
+#float feh
+for_window [class="feh"] floating enable
+
+for_window [class="Tree"] floating enable
 
 #colors
 #solarized theme, weird
@@ -337,6 +342,10 @@ bindsym $mod+Shift+G exec --no-startup-id "~/.i3/gamelaunch.sh nonsteam"
 #Dmenu filebrowser
 bindsym $mod+f exec --no-startup-id "~/.i3/dmenufm.sh ~"
 bindsym $mod+Shift+F exec --no-startup-id "~/.i3/dmenufm.sh"
+#Open a folder mpv
+bindsym $mod+$unmod+f exec --no-startup-id "~/.i3/folderopen.sh"
+#open a folder with feh
+bindsym $mod+$unmod+Shift+F exec --no-startup-id "~/.i3/folderopen.sh feh"
 
 #jump to urgent window
 bindsym $mod+x [urgent=latest] focus
