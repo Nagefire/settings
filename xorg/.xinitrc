@@ -1,14 +1,12 @@
-pulseaudio -D
-urxvtd &
+urxvtd&
 
 #X config
-setxkbmap us
+setxkbmap -variant colemak
 setxkbmap -option compose:caps
 xbindkeys
-xautolock -locker i3lock -time 7 -corners 0-00 &
-xset -dpms
-xset s off
+xautolock -locker "i3lock-fancy -p" -time 7 -corners 0-00 &
+xset s off -dpms
 xrdb merge ~/.Xresources
 
-#start dm
-startlxde
+#start wm
+exec i3
